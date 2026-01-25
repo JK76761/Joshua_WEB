@@ -16,39 +16,29 @@ let startTime = null;
 let timerInterval = null;
 
 /* =====================
-   DOM
+   DOM (나중에 초기화)
 ===================== */
-const mazeElement = document.getElementById("maze");
-const timeDisplay = document.getElementById("time");
-const bestDisplay = document.getElementById("best");
-const startBtn = document.getElementById("startBtn");
-const resetBtn = document.getElementById("resetBtn");
-const nicknameInput = document.getElementById("nickname");
+let mazeElement, timeDisplay, startBtn, resetBtn, nicknameInput;
+
+/* =====================
+   Init (DOM 준비 후)
+===================== */
+document.addEventListener("DOMContentLoaded", () => {
+  mazeElement = document.getElementById("maze");
+  timeDisplay = document.getElementById("time");
+  startBtn = document.getElementById("startBtn");
+  resetBtn = document.getElementById("resetBtn");
+  nicknameInput = document.getElementById("nickname");
+
+  startBtn.addEventListener("click", startGame);
+  resetBtn.addEventListener("click", resetGame);
+
+  renderMaze(); // ⭐ 여기서 최초 렌더
+});
 
 /* =====================
    Maze Render
 ===================== */
-
-startBtn.onclick = () => {
-  if (!nicknameInput.value.trim()) {
-    alert("Enter nickname");
-    return;
-  }
-
-  nickname = nicknameInput.value.trim();
-  currentState = GAME_STATE.PLAYING;
-
-  nicknameInput.disabled = true;
-  startBtn.disabled = true;
-
-  renderMaze();   // ⭐ 중요
-  resetTimer();
-  startTimer();
-
-  alert("Game Started! Move RIGHT 👉 first");
-};
-
-
 function renderMaze() {
   mazeElement.innerHTML = "";
 
@@ -128,13 +118,6 @@ document.addEventListener("keydown", e => {
   }
 });
 
-document.querySelectorAll(".mobile-controls button")
-  .forEach(btn =>
-    btn.addEventListener("click", () =>
-      movePlayer(btn.dataset.dir)
-    )
-  );
-
 /* =====================
    Timer
 ===================== */
@@ -158,7 +141,7 @@ function resetTimer() {
 /* =====================
    Game Flow
 ===================== */
-startBtn.onclick = () => {
+function startGame() {
   if (!nicknameInput.value.trim()) {
     alert("Enter nickname");
     return;
@@ -170,11 +153,14 @@ startBtn.onclick = () => {
   nicknameInput.disabled = true;
   startBtn.disabled = true;
 
+  renderMaze();     // ⭐ 핵심
   resetTimer();
   startTimer();
-};
 
-resetBtn.onclick = () => {
+  alert("Game Started! Use arrow keys 👉");
+}
+
+function resetGame() {
   currentState = GAME_STATE.IDLE;
   nicknameInput.disabled = false;
   startBtn.disabled = false;
@@ -182,7 +168,7 @@ resetBtn.onclick = () => {
 
   renderMaze();
   resetTimer();
-};
+}
 
 function checkExit() {
   if (MAZE_MAP[playerPosition.y][playerPosition.x] === "E") {
@@ -191,11 +177,3 @@ function checkExit() {
     alert(`🎉 ${nickname}, escaped!`);
   }
 }
-
-/* =====================
-   Init
-===================== */
-document.addEventListener("DOMContentLoaded", () => {
-  renderMaze();
-});
-
