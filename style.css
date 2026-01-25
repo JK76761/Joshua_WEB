@@ -1,0 +1,251 @@
+/* =====================
+   Root & Reset
+===================== */
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --border: #1e293b;
+
+  --text-main: #e5e7eb;
+  --text-sub: #94a3b8;
+
+  --accent-blue: #38bdf8;
+  --accent-green: #22c55e;
+  --accent-yellow: #facc15;
+
+  --danger: #ef4444;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =====================
+   Header
+===================== */
+.header {
+  text-align: center;
+  padding: 24px 16px 12px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin: 6px 0 12px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.social-links a {
+  color: var(--accent-blue);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.social-links a:hover {
+  border-bottom: 1px solid var(--accent-blue);
+}
+
+/* =====================
+   Status Bar
+===================== */
+.status-bar {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px;
+  margin: 8px 0;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(8px);
+}
+
+.status-item {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+}
+
+.status-item span {
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+
+/* =====================
+   Game Container
+===================== */
+.game-container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+/* =====================
+   Maze Grid
+===================== */
+.maze-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.maze-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  border-radius: var(--radius-sm);
+  background: #334155;
+}
+
+.cell.wall {
+  background: #020617;
+}
+
+.cell.player {
+  background: var(--accent-blue);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+.cell.exit {
+  background: var(--accent-green);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+/* =====================
+   Control Panel
+===================== */
+.control-panel {
+  width: 100%;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.control-panel label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+}
+
+.control-panel input {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #020617;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.control-panel input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#startBtn {
+  background: linear-gradient(135deg, var(--accent-blue), #0ea5e9);
+  color: #020617;
+}
+
+#resetBtn {
+  background: #1f2933;
+  color: var(--text-main);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* =====================
+   Mobile Controls
+===================== */
+.mobile-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mobile-controls button {
+  width: 56px;
+  height: 56px;
+  font-size: 1.2rem;
+  background: #020617;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.mobile-controls .middle {
+  display: flex;
+  gap: 8px;
+}
+
+/* =====================
+   Footer
+===================== */
+.footer {
+  margin-top: auto;
+  padding: 16px;
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
