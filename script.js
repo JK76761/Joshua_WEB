@@ -11,7 +11,7 @@ function goToFinal() {
 }
 
 function heartExplosion() {
-  alert("I love you more than anything ❤️");
+  alert("I love you more than you love me ❤️");
 }
 
 /* 카드 순차 fade */
