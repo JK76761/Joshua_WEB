@@ -1,89 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maze Escape · Built by Joshua Kim</title>
-
-  <!-- Meta for LinkedIn / SEO -->
-  <meta name="description" content="Maze Escape — a mobile-first maze game built with HTML, CSS, and Vanilla JavaScript by Joshua Kim." />
-
-  <!-- Fonts (선택) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Valentine 💝</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- ===== Header ===== -->
-  <header class="header">
-    <h1 class="title">Maze Escape</h1>
-    <p class="subtitle">Built by <strong>Joshua Kim</strong></p>
 
-    <nav class="social-links" aria-label="Social links">
-      <a href="https://github.com/YOUR_GITHUB" target="_blank" aria-label="GitHub">GitHub</a>
-      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-      <a href="mailto:YOUR_EMAIL@example.com" aria-label="Email">Email</a>
-    </nav>
-  </header>
+<!-- 💌 Landing -->
+<section id="landing">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>Happy Valentine's Day 💝</h1>
+    <button onclick="openLetter()">Open Our Story</button>
+  </div>
+</section>
 
-  <!-- ===== Status Bar ===== -->
-  <section class="status-bar" aria-live="polite">
-    <div class="status-item">
-      ⏱ Time: <span id="time">0.0s</span>
-    </div>
-    <div class="status-item">
-      🏆 Best: <span id="best">--</span>
-    </div>
-  </section>
+<!-- 🌸 Timeline -->
+<section id="timeline" class="hidden">
+  <h1>Our Story ✨</h1>
 
-  <!-- ===== Game Area ===== -->
-  <main class="game-container">
-    <!-- Maze Grid -->
-    <section class="maze-wrapper" aria-label="Maze board">
-      <div id="maze" class="maze-grid">
-        <!-- JS로 셀 생성 -->
-      </div>
-    </section>
+  <div class="card fade">
+    <img src="11c190c225661561c93f62f2e2d60b8c.JPG">
+    <p>The day I met you ❤️</p>
+  </div>
 
-    <!-- Pre-Game Panel -->
-    <section class="control-panel">
-      <label for="nickname">Enter Nickname</label>
-      <input
-        type="text"
-        id="nickname"
-        placeholder="Joshua"
-        maxlength="12"
-        autocomplete="off"
-      />
+  <div class="card big fade">
+    <img src="assets/photo3.jpg">
+    <p>Our first date 🌸</p>
+  </div>
 
-      <div class="buttons">
-        <button id="startBtn">Start Game</button>
-        <button id="resetBtn">Reset</button>
-      </div>
-    </section>
+  <button onclick="goToFinal()">Next 💌</button>
+</section>
 
-    <!-- Mobile Controls -->
-    <section class="mobile-controls" aria-label="Mobile movement controls">
-      <button data-dir="up" aria-label="Move up">↑</button>
-      <div class="middle">
-        <button data-dir="left" aria-label="Move left">←</button>
-        <button data-dir="down" aria-label="Move down">↓</button>
-        <button data-dir="right" aria-label="Move right">→</button>
-      </div>
-    </section>
-  </main>
+<!-- 💖 Final -->
+<section id="final" class="hidden">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>System Status 💻</h1>
+    <p>Heart Connected ✅</p>
+    <p>Bug Count: 0</p>
+    <p>Forever Mode: Activated 💍</p>
+    <button onclick="heartExplosion()">Stay With Me Forever?</button>
+  </div>
+</section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <p>© 2026 Joshua Kim · HTML · CSS · Vanilla JavaScript</p>
-  </footer>
-
-  <!-- JS -->
-  <script type="module" src="game.js"></script>
-  <script type="module" src="maze.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
